@@ -13,14 +13,10 @@ fenetre.addshape("pomme.png")
 fenetre.tracer(1)
 
 
-# Dimensions des vrais murs
 LARGEUR = 1000
 HAUTEUR = 1000
 
 
-# =========================
-# DESSIN DES MURS
-# =========================
 
 mur = turtle.Turtle()
 mur.speed(10)
@@ -62,9 +58,6 @@ oeil_droit.color("white")
 oeil_droit.shapesize(0.3, 0.3)
 oeil_droit.penup()
 
-# =========================
-# NOURRITURE
-# =========================
 
 nourriture = turtle.Turtle()
 nourriture.speed(0)
@@ -73,16 +66,10 @@ nourriture.penup()
 nourriture.goto(0, 100)
 
 
-# =========================
-# CORPS DU SERPENT
-# =========================
 
 segments = []
 
 
-# =========================
-# SCORE
-# =========================
 
 score = 0
 meilleur_score = 0
@@ -107,9 +94,7 @@ texte.write(
     align="center",
     font=("Arial", 10, "bold"))
 
-# =========================
-# DÉPLACEMENT
-# =========================
+
 
 def haut():
 
@@ -179,9 +164,7 @@ def mettre_a_jour_yeux():
         oeil_gauche.goto(x - 8, y + 8)
         oeil_droit.goto(x + 8, y + 8)
 
-# =========================
-# TOUCHES DU CLAVIER
-# =========================
+
 
 fenetre.listen()
 
@@ -191,15 +174,9 @@ fenetre.onkeypress(gauche, "Left")
 fenetre.onkeypress(droite, "Right")
 
 
-# =========================
-# BOUCLE PRINCIPALE
-# =========================
 
 while True:
 
-    # -------------------------
-    # DÉPLACER LE CORPS
-    # -------------------------
 
     for i in range(len(segments) - 1, 0, -1):
 
@@ -219,16 +196,12 @@ while True:
         )
 
 
-    # -------------------------
-    # DÉPLACER LA TÊTE
-    # -------------------------
+
 
     avancer()
     mettre_a_jour_yeux()
 
-    # -------------------------
-    # COLLISION AVEC LES MURS
-    # -------------------------
+   
 
     if (
         tete.xcor() > LARGEUR / 2 - 10
@@ -265,10 +238,6 @@ while True:
         )
 
 
-    # -------------------------
-    # MANGER LA NOURRITURE
-    # -------------------------
-
     if tete.distance(nourriture) < 40:
 
         x = random.randint(-19, 19) * 20
@@ -304,9 +273,6 @@ while True:
         )
 
 
-    # -------------------------
-    # COLLISION AVEC LE CORPS
-    # -------------------------
 
     for segment in segments[1:]:
 
@@ -340,9 +306,6 @@ while True:
             )
 
 
-    # -------------------------
-    # RAFRAÎCHIR L'ÉCRAN
-    # -------------------------
 
     fenetre.update()
 
