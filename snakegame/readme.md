@@ -49,14 +49,6 @@ Then run the main Python file:
 python3 snake2.py
 ```
 
-## Screenshots
+## DEMO
 
-### Menu
-![Menu](images/1.png)
-
-### Gameplay
-![Gameplay](images/2.png)
-
-### Game Over
-![Game Over](images/3.png)
-
+![Demo](snakegamedemo.gif)
